@@ -1,0 +1,58 @@
+<%# <%= render "shared/header" %>
+
+<div class="wrapper">
+    <div class="store-side">
+      <div class="store-header">
+        <div class="side-box">
+          <p class="store-name">ECStore</p>
+        </div>
+      </div>
+      <div class="side-menu">
+        <div class="categories">
+          <ul class="buysell" >買う
+            <li><%= link_to "キッズ", "#", class: "buy" %></li> 
+            <li><%= link_to "メンズ", "#", class: "buy" %></li> 
+            <%# ↑ここはカテゴリー一覧が表示されるように実装  %>
+          </ul>
+          <ul class="buysell" >売る
+            <li><%= link_to "出品", new_item_path, class: "sell" %></li> 
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="store-main">
+      <div class="main-header">
+        <div class="header-leftbox">
+          <ul class="top-list">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.nickname, "#", class: "menu" %></li> 
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "menu" %></li> 
+          <% else %>
+              <li><%= link_to 'ログイン', new_user_session_path, class: "menu" %></li> 
+              <li><%= link_to '新規登録', new_user_registration_path, class: "menu" %></li> 
+          <% end%>
+          </ul>
+        </div>
+        <a href="#" class="edit-btn">検索機能を付けたい</a>
+      </div>
+      <div class="items"></div>
+    </div>
+    <div>
+</div>
+
+<%# <%= render "shared/footer" %>
+
+
+
+
+<%# <div class="site-name">ECStore</div> %>
+    <%# <div class="user-menu"> %>
+      
+    <%# </div> %>
+    <%# <div class="search-menu"> %>
+      <%# <%= form_with(url: '#', local: true, method: :get, class: "search-form") do |form| %> 
+        <%# <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %> 
+        <%# <%= form.submit "検索", class: "search-btn" %> 
+      <%# <% end %> 
+    <%# </div> %>
+<%# </div> %>

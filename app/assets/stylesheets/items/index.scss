@@ -1,0 +1,126 @@
+.wrapper{
+  height: 100vh;
+  display: flex;
+}
+
+.store-side{
+  width: 300px;
+  background-color: #333333;
+}
+
+  .store-header{
+    height: 100px;
+    background-color: #eeeeee;
+    display: flex;
+    align-items: center;
+  }
+
+    .side-box{
+      width: 260px;
+      height: 20px;
+      margin: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+
+      .store-name{
+        color: #595959;
+        font-size: 50px;
+      }
+
+  .side-menu{
+    height: calc(100% - 100px);
+    // background-color: green;   //見やすいようにしてるだけよ
+  }
+    .categories{
+      // display: flex;
+      align-items: center;
+    }
+      .buysell{
+        color: #eeeeee;
+        font-size: 25px;
+        margin: 0 50px 30px 30px;
+
+      }
+      .buy{
+        color: #eeeeee;
+        font-size: 20px;
+      }
+      .sell{
+        color: #eeeeee;
+        font-size: 20px;
+      }
+
+
+
+.store-main{
+  width: calc(100% - 300px);
+  background-color: #eeeeee; 
+}
+
+  .main-header{
+    height: 100px;
+    background-color: #3f3f3f;
+    border-bottom: 1px solid #595959;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+  }
+
+    .top-list{
+      color: #eeeeee;
+      font-size: 25px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+      .menu{
+        display: flex;
+        margin-right: 100px;
+      }
+
+
+
+.edit-btn{
+  font-size: 16px;
+  border: 1px solid #eeeeee;
+  padding: 15px 20px;
+}
+
+// .form{
+//   height: 90px;
+//   background-color: #eeeeee;
+//   padding: 20px 40px;
+// }
+
+// .new-message{
+//   display: flex;
+// }
+
+// .input-text{
+//   width: 100%;
+//   height: 50px;
+//   padding: 0 15px;
+//   color: #434a54;
+//   font-size: 16px;
+//   border-style: none;
+//   margin-right: 15px;
+// }
+
+// .submit-btn{
+//   width: 100px;
+//   height: 50px;
+//   padding: 0 30px;
+//   background-color: #eeeeee;
+//   color: #1a1d21;
+//   font-size: 15px;
+//   cursor: pointer;
+// }
+
+a{
+  text-decoration: none;
+  color: #eeeeee;
+}
