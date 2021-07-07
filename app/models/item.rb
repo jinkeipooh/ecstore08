@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   has_one_attached :image
+  belongs_to :user
 
   validates :category_id, numericality: { other_than: 1, message: "を選択してください"} 
   with_options presence: true do

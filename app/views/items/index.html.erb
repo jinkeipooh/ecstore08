@@ -46,7 +46,7 @@
         <%# 商品一覧が表示されるように記載 %>
         <% @items.each do |item| %>
           <li class='list'>
-            <%= link_to items_path(item.id) do %>
+            <%= link_to item_path(item.id) do %>
               <div class='item-img-content'>  
                 <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' %>  
               </div>
