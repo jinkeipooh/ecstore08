@@ -21,7 +21,7 @@
           <% end%>
           </ul>
         </div>
-        <a href="#" class="edit-btn">検索機能を付けたい</a>
+        <a href="#" class="edit-btn">商品検索機能を付けたい</a>
       </div>
       <%# // 右上 %>
     </header>
@@ -48,7 +48,7 @@
           <li class='list'>
             <%= link_to items_path(item.id) do %>
               <div class='item-img-content'>  
-                <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' if item.image.attached? %>
+                <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' %>  
               </div>
               <div class='item-info'>
                 <h3 class='item-name'>
