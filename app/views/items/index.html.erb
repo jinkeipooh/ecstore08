@@ -1,26 +1,14 @@
 <%# <%= render "shared/header" %>
 
-<div class="wrapper">
-    <div class="store-side">
+    <header> <%# // 上ヘッダーメニュー %>
+      <%# 左上 %>
       <div class="store-header">
         <div class="side-box">
           <p class="store-name">ECStore</p>
         </div>
       </div>
-      <div class="side-menu">
-        <div class="categories">
-          <ul class="buysell" >買う
-            <li><%= link_to "キッズ", "#", class: "buy" %></li> 
-            <li><%= link_to "メンズ", "#", class: "buy" %></li> 
-            <%# ↑ここはカテゴリー一覧が表示されるように実装  %>
-          </ul>
-          <ul class="buysell" >売る
-            <li><%= link_to "出品", new_item_path, class: "sell" %></li> 
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="store-main">
+      <%# // 左上 %>
+      <%# 右上 %>
       <div class="main-header">
         <div class="header-leftbox">
           <ul class="top-list">
@@ -33,12 +21,54 @@
           <% end%>
           </ul>
         </div>
-        <a href="#" class="edit-btn">検索機能を付けたい</a>
+        <a href="#" class="edit-btn">商品検索機能を付けたい</a>
       </div>
-      <div class="items"></div>
+      <%# // 右上 %>
+    </header>
+
+    <div class="store-main">  <%# // 下メインメニュー %>
+      <%# 左下 %>
+      <div class="side-menu"> 
+        <div class="categories">
+          <ul class="buysell" >買う
+            <li><%= link_to "キッズ", "#", class: "buy" %></li> 
+            <li><%= link_to "メンズ", "#", class: "buy" %></li> 
+            <%# ↑ここはカテゴリー一覧が表示されるように実装  %>
+          </ul>
+          <ul class="buysell" >売る
+            <li><%= link_to "出品", new_item_path, class: "sell" %></li> 
+          </ul>
+        </div>
+      </div>
+      <%# // 左下 %>
+      <%# 右下 %>
+      <div class="items">
+        <%# 商品一覧が表示されるように記載 %>
+        <% @items.each do |item| %>
+          <li class='list'>
+            <%= link_to items_path(item.id) do %>
+              <div class='item-img-content'>  
+                <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' %>  
+              </div>
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= item.name %>
+                </h3>
+                <div class='item-price'>
+                  <span>¥ <%= item.price %></span>
+                  <%# <div class='star-btn'>
+                    <%# <%= image_tag "star.png", class:"star-icon" %>
+                    <%# <span class='star-count'>0</span> %>
+                  <%# </div> %>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+        <%# // 商品一覧が表示されるように記載 %>
+      </div>
+      <%# 右下 %>
     </div>
-    <div>
-</div>
 
 <%# <%= render "shared/footer" %>
 
