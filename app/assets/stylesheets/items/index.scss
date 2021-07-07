@@ -1,86 +1,208 @@
-.wrapper{
-  height: 100vh;
+
+header{
+  height: 80px;
+  width: 100%;
+  background-color: #eeeeee;
   display: flex;
 }
-
-.store-side{
+// 左上
+.store-header{
   width: 300px;
-  background-color: #333333;
+  background-color: #eeeeee;
 }
-
-  .store-header{
-    height: 100px;
-    background-color: #eeeeee;
-    display: flex;
-    align-items: center;
-  }
-
-    .side-box{
-      width: 260px;
-      height: 20px;
-      margin: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: bold;
-    }
-
-      .store-name{
-        color: #595959;
-        font-size: 50px;
-      }
-
-  .side-menu{
-    height: calc(100% - 100px);
-    // background-color: green;   //見やすいようにしてるだけよ
-  }
-    .categories{
-      // display: flex;
-      align-items: center;
-    }
-      .buysell{
+.side-box{
+  width: 260px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+.store-name{
+  color: #595959;
+  font-size: 50px;
+}
+// 左上
+// 右上
+.main-header{
+  width: calc(100% - 300px);
+  background-color: #3f3f3f;
+  border-bottom: 1px solid #595959;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+.top-list{
         color: #eeeeee;
         font-size: 25px;
-        margin: 0 50px 30px 30px;
-
+        display: flex;
+        justify-content: space-around;
       }
-      .buy{
-        color: #eeeeee;
-        font-size: 20px;
-      }
-      .sell{
-        color: #eeeeee;
-        font-size: 20px;
-      }
+.menu{
+  display: flex;
+  margin-right: 100px;
+}
+// 右上
 
 
 
 .store-main{
-  width: calc(100% - 300px);
-  background-color: #eeeeee; 
+  height: 800px;
+  width: 100%;
+  background-color: #eeeeee;
+  display: flex;
 }
 
-  .main-header{
-    height: 100px;
-    background-color: #3f3f3f;
-    border-bottom: 1px solid #595959;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-  }
+// 左下
+.side-menu{
+  width: 300px;
+  background-color: #3f3f3f;
+  // box-sizing: border-box;
+}
+.categories{
+  // display: flex;
+  align-items: center;
+}
+.buysell{
+  color: #eeeeee; 
+  font-size: 25px;
+  margin: 0 50px 30px 30px;
 
-    .top-list{
-      color: #eeeeee;
-      font-size: 25px;
-      display: flex;
-      justify-content: space-around;
-    }
+}
+.buy{
+  color: #eeeeee;
+  font-size: 20px;
+}
+.sell{
+  color: #eeeeee;
+  font-size: 20px;
+}
+// 左下
+// 右下
+.items{
+  width: calc(100% - 300px);
+  display: flex;
+  flex-wrap: wrap;
+  // box-sizing: border-box;
+}
+.list {
+  width: 33vh;
+  display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  position: relative;
+  margin: 10px;
+}
+.item-img {
+  width: 33vh;
+  height: 33vh;
+}
+.item-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+.item-name {
+  font-size: 2.5vh;
+}
+.item-price {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+// 右下
 
-      .menu{
-        display: flex;
-        margin-right: 100px;
-      }
+
+
+
+
+
+
+
+// .wrapper{
+//   height: 100vh;
+//   display: flex;
+// }
+
+// .store-side{
+//   width: 300px;
+//   background-color: #333333;
+// }
+
+//   .store-header{
+//     height: 100px;
+//     background-color: #eeeeee;
+//     display: flex;
+//     align-items: center;
+//   }
+
+//     .side-box{
+//       width: 260px;
+//       height: 20px;
+//       margin: 0 20px;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       font-weight: bold;
+//     }
+
+//       .store-name{
+//         color: #595959;
+//         font-size: 50px;
+//       }
+
+//   .side-menu{
+//     height: calc(100% - 100px);
+//     // background-color: green;   //見やすいようにしてるだけよ
+//   }
+//     .categories{
+//       // display: flex;
+//       align-items: center;
+//     }
+//       .buysell{
+//         color: #eeeeee;
+//         font-size: 25px;
+//         margin: 0 50px 30px 30px;
+
+//       }
+//       .buy{
+//         color: #eeeeee;
+//         font-size: 20px;
+//       }
+//       .sell{
+//         color: #eeeeee;
+//         font-size: 20px;
+//       }
+
+
+
+// .store-main{
+//   width: calc(100% - 300px);
+//   background-color: #eeeeee; 
+// }
+
+//   .main-header{
+//     height: 100px;
+//     background-color: #3f3f3f;
+//     border-bottom: 1px solid #595959;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 0 40px;
+//   }
+
+//     .top-list{
+//       color: #eeeeee;
+//       font-size: 25px;
+//       display: flex;
+//       justify-content: space-around;
+//     }
+
+//       .menu{
+//         display: flex;
+//         margin-right: 100px;
+//       }
 
 
 
@@ -89,6 +211,39 @@
   border: 1px solid #eeeeee;
   padding: 15px 20px;
 }
+
+
+
+// .list {
+//   width: 33vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   position: relative;
+// }
+
+
+// .item-img {
+//   width: 33vh;
+//   height: 33vh;
+// }
+
+// .item-info {
+//   background-color: #FFF;
+//   color: black;
+//   padding: 1vw;
+// }
+
+// .item-name {
+//   font-size: 2.5vh;
+// }
+
+// .item-price {
+//   font-size: 1.5vh;
+//   display: flex;
+//   justify-content: space-between;
+// }
+
 
 // .form{
 //   height: 90px;
