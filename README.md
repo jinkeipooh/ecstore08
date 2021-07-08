@@ -36,13 +36,13 @@
 
 ##orders テーブル
 
-| Column   | Type       | Options           |
-| -------- | ---------- | ----------------- |
-| user     | references | foreign_key: true |
-| item     | references | foreign_key: true |
-| address  | references | foreign_key: true |
-| quantity | integer    |  |
-| price    | integer    | null: false       |
+| Column         | Type       | Options           |
+| -------------- | ---------- | ----------------- |
+| user           | references | foreign_key: true |
+| item           | references | foreign_key: true |
+| address        | references | foreign_key: true |
+| stock_quantity | integer    |                   |
+| price          | integer    | null: false       |
 
 ### Association
 
@@ -57,7 +57,7 @@
 | ------------  | ---------- | ----------------- |
 | item          | references | foreign_key: true |
 | order         | references | foreign_key: true |
-| quantity      | integer    |  |
+| quantity      | integer    | null: false |
 
 ### Association
 
@@ -90,17 +90,17 @@ has_many :carts, through: :line_items
 
 ### Association
 
-has_many :line_items
+has_many :cart_items
 has_many :items, through: :line_items
 
 
-##line_items
+##cart_items
 
 | Column        | Type       | Options           |
 | ------------  | ---------- | ----------------- |
 | item          | references | foreign_key: true |
 | cart          | references | foreign_key: true |
-| quantity      | integer    |  |
+| quantity      | integer    | default: 0, null: false |
 
 ### Association
 

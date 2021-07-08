@@ -24,7 +24,15 @@
       <p class="or-text">or</p>
       <%= link_to "削除", item_path, method: :delete, class:"item-destroy" %>
     <% else %>
-      <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+      <%# <%= link_to "カートにいれる", "#" ,class:"item-red-btn"%>
+      <div class="cart">
+        <%= form_with model: @cart_item, url: cart_items_path, local: true do |f|%>
+          <%= f.label :quantity, "数量"%>
+          <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.submit "カートに追加", class:"item-red-btn" %>
+        <% end %>
+      </div>
     <% end %>
 
 
