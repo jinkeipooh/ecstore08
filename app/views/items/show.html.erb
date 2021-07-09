@@ -26,7 +26,7 @@
     <% else %>
       <%# <%= link_to "カートにいれる", "#" ,class:"item-red-btn"%>
       <div class="cart">
-        <%= form_with model: @cart_item, url: cart_items_path, local: true do |f|%>
+        <%= form_with model: @cart_item, url: cart_items_path, local: true do |f|%>   <%# 送信先を変えられないか？ 同じ商品（の数）を更新できるようにしたい %>
           <%= f.label :quantity, "数量"%>
           <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
           <%= f.hidden_field :item_id, value: @item.id %>

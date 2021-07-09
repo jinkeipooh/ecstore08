@@ -38,36 +38,30 @@
       <ul class="buysell" >売る
         <li><%= link_to "出品", new_item_path, class: "sell" %></li> 
       </ul>
-      <% if user_signed_in? %>
-        <ul class="buysell" >カート
-          <%= image_tag "cart.jpeg" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-          <li><%= link_to "カート", cart_path(@cart.user), class: "sell" %></li> 
-        </ul> 
-      <% end %>
     </div>
   </div>
   <%# // 左下 %>
   <%# 右下 %>
   <div class="items">
-    <div class="page-name">商品一覧</div>
+    <div class="page-name">ショッピングカート</div>
     <%# 商品一覧が表示されるように記載 %>
-    <% @items.each do |item| %>
-      <li class='list'>
-        <%= link_to item_path(item.id) do %>
-          <div class='item-img-content'>  
-            <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' %>  
+    <% @cart_items.each do |cart_item| %>
+      <li class='cart-list'>
+        <%= link_to item_path(cart_item.item.id) do %>
+          <div class='cart-item-img'>  
+            <%= image_tag cart_item.item.image, class: 'item-img' %>  
           </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              <%= item.name %>
-            </h3>
-            <div class='item-price'>
-              <span>¥ <%= item.price %></span>
-              <%# <div class='star-btn'>
-                <%# <%= image_tag "star.png", class:"star-icon" %>
-                <%# <span class='star-count'>0</span> %>
-              <%# </div> %>
+          <div class="cart-quantity">
+            <div class='cart-item'>
+              <span class='cart-item-name'><%= cart_item.item.name %></span>
             </div>
+            <div class='cart-item-count'>
+              <span class='cart-quantity'><%= cart_item.quantity %>個</span>
+              <%= link_to "削除", cart_item_path(cart_item.item), class: "cart-delete", method: :delete%>
+            </div>
+          </div>
+          <div class='cart-item-price'>
+            <span>¥ <%= cart_item.item.price %></span>
           </div>
         <% end %>
       </li>
@@ -78,18 +72,3 @@
 </div>
 
 <%# <%= render "shared/footer" %>
-
-
-
-
-<%# <div class="site-name">ECStore</div> %>
-    <%# <div class="user-menu"> %>
-      
-    <%# </div> %>
-    <%# <div class="search-menu"> %>
-      <%# <%= form_with(url: '#', local: true, method: :get, class: "search-form") do |form| %> 
-        <%# <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %> 
-        <%# <%= form.submit "検索", class: "search-btn" %> 
-      <%# <% end %> 
-    <%# </div> %>
-<%# </div> %>

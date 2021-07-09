@@ -1,15 +1,13 @@
 class CartItemsController < ApplicationController
-  before_action :set_line_item, only: [:create, :destroy]
+  before_action :set_line_item, only: [:create, :destroy, :update]
   before_action :set_user
   before_action :set_cart
 
   def create
     @cart_item = @cart.cart_items.build(item_id: params[:item_id], quantity: params[:quantity], user_id: current_user .id)
     if @cart_item.save
-      binding.pry
-      redirect_to items_path
+      redirect_to cart_path(@cart_item.user)
     else
-      binding.pry
       redirect_to item_path(@cart_item.item)
     end
   end
@@ -19,6 +17,13 @@ class CartItemsController < ApplicationController
     redirect_to current_cart
   end
 
+  # def update
+  #   if @cart_item.update(item_id: params[:item_id], quantity: params[:quantity])
+  #     redirect_to cart_path(@cart.user)
+  #   else
+  #     render item_path(@cart_item.item)
+  #   end
+  # end
 
   private
   def set_user

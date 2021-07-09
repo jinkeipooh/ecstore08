@@ -7,10 +7,14 @@ class ApplicationController < ActionController::Base
       session[:cart_id] = current_cart.id
       current_cart
     else
-      current_cart = Cart.create(user_id: current_user.id)
-      session[:cart_id] = current_cart.id
-      current_cart = Cart.find_by(id: session[:cart_id])
-      current_cart
+      if user_signed_in?
+        current_cart = Cart.create(user_id: current_user.id)        ###  current_user → ログインしていないユーザーが入れない！
+        session[:cart_id] = current_cart.id
+        current_cart = Cart.find_by(id: session[:cart_id])
+        current_cart
+      else
+        render :index                                               ###  renderで引き戻しているが、、これで良いのか？？？？？？？？？
+      end
     end
   end
 

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :items
   has_one :cart
+  has_many :cart_items
   with_options presence: true do
     validates :nickname
     validates :birthday
