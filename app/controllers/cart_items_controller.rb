@@ -1,7 +1,7 @@
 class CartItemsController < ApplicationController
-  before_action :set_line_item, only: [:create, :destroy, :update]
+  before_action :set_line_item, only: [:create]
   before_action :set_user
-  before_action :set_cart
+  before_action :set_cart, except: [:destroy]
 
   def create
     @cart_item = @cart.cart_items.build(item_id: params[:item_id], quantity: params[:quantity], user_id: current_user .id)
@@ -13,7 +13,8 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    @cart.destroy
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
     redirect_to current_cart
   end
 
