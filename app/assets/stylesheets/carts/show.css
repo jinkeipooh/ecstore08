@@ -3,6 +3,7 @@
   font-size: 40px;
   margin: 0 0 50px 30px;
   display: flex;
+  /* flex-wrap: wrap; */
 }
 
 .cart-list {
@@ -41,4 +42,24 @@
   margin-right: 50px;
   background-color: indianred;
   font-weight: bold;
+}
+
+.payment{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 40px;
+}
+
+.total{
+  margin: auto;
+  border: solid 1px red;
+}
+
+.pay{
+  margin: auto;
+  border: solid 1px red;
+  color: blue;
 }

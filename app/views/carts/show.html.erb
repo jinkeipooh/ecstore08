@@ -44,29 +44,45 @@
   <%# 右下 %>
   <div class="items">
     <div class="page-name">ショッピングカート</div>
-    <%# 商品一覧が表示されるように記載 %>
-    <% @cart_items.each do |cart_item| %>
-      <li class='cart-list'>
-        <%= link_to item_path(cart_item.item.id) do %>
-          <div class='cart-item-img'>  
-            <%= image_tag cart_item.item.image, class: 'item-img' %>  
-          </div>
-          <div class="cart-quantity">
-            <div class='cart-item'>
-              <span class='cart-item-name'><%= cart_item.item.name %></span>
+      <%# 商品一覧が表示されるように記載 %>
+      <% @cart_items.each do |cart_item| %>
+        <li class='cart-list'>
+          <%= link_to item_path(cart_item.item.id) do %>
+            <div class='cart-item-img'>  
+              <%= image_tag cart_item.item.image, class: 'item-img' %>  
             </div>
-            <div class='cart-item-count'>
-              <span class='cart-quantity'><%= cart_item.quantity %>個</span>
-              <%= link_to "削除", cart_item_path(cart_item.id), class: "cart-delete", method: :delete%>
+            <div class="cart-quantity">
+              <div class='cart-item'>
+                <span class='cart-item-name'><%= cart_item.item.name %></span>
+              </div>
+              <div class='cart-item-count'>
+                <span class='cart-quantity'><%= cart_item.quantity %>個</span>
+                <%= link_to "削除", cart_item_path(cart_item.id), class: "cart-delete", method: :delete%>
+              </div>
             </div>
-          </div>
-          <div class='cart-item-price'>
-            <span>¥ <%= cart_item.item.price %></span>
-          </div>
-        <% end %>
-      </li>
-    <% end %>
-    <%# // 商品一覧が表示されるように記載 %>
+            <div class='cart-item-price'>
+              <span>¥ <%= (cart_item.item.price)*(cart_item.quantity) %></span>
+            </div>
+          <% end %>
+        </li>
+        <% @cart_total += (cart_item.item.price)*(cart_item.quantity) %>
+        <% @cart_count += cart_item.quantity %>
+      <% end %>
+      <%# // 商品一覧が表示されるように記載 %>
+      <%# 小計、レジに進む %>
+      <div class="payment">
+        <div class="total">
+          計： <%= @cart_count %> 点
+        </div>
+        <div class="total">
+          小計： ¥ <%= @cart_total %>
+        </div>
+        <%# <div class="pay"> %>
+          <%= link_to "レジに進む", "#", class: "pay" %>
+        <%# </div> %>
+      </div>
+      <%# // 小計、レジに進む %>
+    </div>
   </div>
   <%# 右下 %>
 </div>
