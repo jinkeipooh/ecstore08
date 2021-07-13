@@ -1,4 +1,4 @@
-<%# <%= render "shared/header" %>
+<%# <%= render "shared/header" %> 
 
 <header> <%# // 上ヘッダーメニュー %>
   <%# 左上 %>
@@ -67,6 +67,7 @@
         </li>
         <% @cart_total += (cart_item.item.price)*(cart_item.quantity) %>
         <% @cart_count += cart_item.quantity %>
+        <% @cart_id = cart_item.cart_id %>
       <% end %>
       <%# // 商品一覧が表示されるように記載 %>
       <%# 小計、レジに進む %>
@@ -77,9 +78,7 @@
         <div class="total">
           小計： ¥ <%= @cart_total %>
         </div>
-        <%# <div class="pay"> %>
-          <%= link_to "レジに進む", "#", class: "pay" %>
-        <%# </div> %>
+          <%= link_to "レジに進む", cart_orders_path(@cart_id), class: "pay" %>
       </div>
       <%# // 小計、レジに進む %>
     </div>

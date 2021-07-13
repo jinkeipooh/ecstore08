@@ -44,9 +44,16 @@
 | stock_quantity | integer    |                   |
 | price          | integer    | null: false       |
 
+???
+| Column         | Type       | Options           |
+| -------------- | ---------- | ----------------- |
+| user           | references | foreign_key: true |
+| cart           | references | foreign_key: true |
+
 ### Association
 
 - belongs_to :user
+- belongs_to :cart
 - has_many :order_details
 - has_many :item, through: :order_details
 
@@ -57,7 +64,7 @@
 | ------------  | ---------- | ----------------- |
 | item          | references | foreign_key: true |
 | order         | references | foreign_key: true |
-| quantity      | integer    | null: false |
+| quantity      | integer    | null: false       |
 
 ### Association
 
