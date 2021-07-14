@@ -1,0 +1,89 @@
+<%# <%= render "shared/header" %> 
+
+<header> <%# // 上ヘッダーメニュー %>
+  <%# 左上 %>
+  <div class="store-header">
+    <div class="side-box">
+      <%= link_to 'ECStore', root_path, class: "store-name" %>
+    </div>
+  </div>
+  <%# // 左上 %>
+  <%# 右上 %>
+  <div class="main-header">
+    <div class="header-leftbox">
+      <ul class="top-list">
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.nickname, "#", class: "menu" %></li> 
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "menu" %></li> 
+      <% else %>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "menu" %></li> 
+          <li><%= link_to '新規登録', new_user_registration_path, class: "menu" %></li> 
+      <% end%>
+      </ul>
+    </div>
+    <a href="#" class="edit-btn">商品検索機能を付けたい</a>
+  </div>
+  <%# // 右上 %>
+</header>
+
+<div class="store-main">  <%# // 下メインメニュー %>
+  <%# 左下 %>
+  <div class="side-menu"> 
+    <div class="categories">
+      <ul class="buysell" >買う
+        <li><%= link_to "キッズ", "#", class: "buy" %></li> 
+        <li><%= link_to "メンズ", "#", class: "buy" %></li> 
+        <%# ↑ここはカテゴリー一覧が表示されるように実装  %>
+      </ul>
+      <ul class="buysell" >売る
+        <li><%= link_to "出品", new_item_path, class: "sell" %></li> 
+      </ul>
+    </div>
+  </div>
+  <%# // 左下 %>
+  <%# 右下 %>
+  <div class="items">
+    <div class="page-name">ショッピングカート</div>
+      <%# 商品一覧が表示されるように記載 %>
+      <% @cart_items.each do |cart_item| %>
+        <li class='cart-list'>
+          <%= link_to item_path(cart_item.item.id) do %>
+            <div class='cart-item-img'>  
+              <%= image_tag cart_item.item.image, class: 'item-img' %>  
+            </div>
+            <div class="cart-quantity">
+              <div class='cart-item'>
+                <span class='cart-item-name'><%= cart_item.item.name %></span>
+              </div>
+              <div class='cart-item-count'>
+                <span class='cart-quantity'><%= cart_item.quantity %>個</span>
+                <%= link_to "削除", cart_item_path(cart_item.id), class: "cart-delete", method: :delete%>
+              </div>
+            </div>
+            <div class='cart-item-price'>
+              <span>¥ <%= (cart_item.item.price)*(cart_item.quantity) %></span>
+            </div>
+          <% end %>
+        </li>
+        <% @cart_total += (cart_item.item.price)*(cart_item.quantity) %>
+        <% @cart_count += cart_item.quantity %>
+        <% @cart_id = cart_item.cart_id %>
+      <% end %>
+      <%# // 商品一覧が表示されるように記載 %>
+      <%# 小計、レジに進む %>
+      <div class="payment">
+        <div class="total">
+          計： <%= @cart_count %> 点
+        </div>
+        <div class="total">
+          小計： ¥ <%= @cart_total %>
+        </div>
+          <%= link_to "レジに進む", cart_orders_path(@cart_id), class: "pay" %>
+      </div>
+      <%# // 小計、レジに進む %>
+    </div>
+  </div>
+  <%# 右下 %>
+</div>
+
+<%# <%= render "shared/footer" %>

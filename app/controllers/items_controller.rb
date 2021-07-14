@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.order("created_at DESC")
+    @cart = current_cart
   end
 
   def new
@@ -20,6 +21,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    # @cart_item = CartItem.new
   end
 
   def edit
