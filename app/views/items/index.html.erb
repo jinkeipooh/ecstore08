@@ -40,7 +40,7 @@
       </ul>
       <% if user_signed_in? %>
         <ul class="buysell" >カート
-          <%= image_tag "cart.jpeg" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+          <%# <%= image_tag "cart.jpeg" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
           <li><%= link_to "カート", cart_path(@cart.user), class: "sell" %></li> 
         </ul> 
       <% end %>
