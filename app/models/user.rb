@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :items
   has_one :cart
   has_many :cart_items
+  has_many :orders
   with_options presence: true do
     validates :nickname
     validates :birthday

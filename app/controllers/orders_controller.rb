@@ -1,13 +1,19 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @order = Order.new
+    @cart_items = current_cart.user.cart_items
+    @cart_count = 0
+    @cart_total = 0
+    @cart_id = 0
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.create(order_params)
     if @order.save
       pay_item
+      ###カートの中身を空にする処理 current_cart.destroy???  Cartコントローラーのdestroyアクションに飛ばせる？
       redirect_to root_path
     else
       render :index
@@ -16,14 +22,14 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:user_id, :cart_id)
-    .merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    # binding.pry
+    params.require(:order).permit(:quantity, :total_price).merge(user_id: current_user.id, cart_id: params[:cart_id], token: params[:token])
   end
-  
+
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: @item.price,
+      amount: order_params[:total_price],
       card: order_params[:token],
       currency: 'jpy'
     )

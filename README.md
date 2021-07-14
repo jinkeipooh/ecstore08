@@ -44,11 +44,13 @@
 | stock_quantity | integer    |                   |
 | price          | integer    | null: false       |
 
-???
+orders
 | Column         | Type       | Options           |
 | -------------- | ---------- | ----------------- |
 | user           | references | foreign_key: true |
 | cart           | references | foreign_key: true |
+| quantity       | integer    | null: false       |
+| total_price    | integer    | null: false       |
 
 ### Association
 
@@ -94,6 +96,7 @@ has_many :carts, through: :line_items
 
 | Column        | Type       | Options           |
 | ------------  | ---------- | ----------------- |
+| user          | references | foreign_key: true |
 
 ### Association
 
@@ -103,10 +106,10 @@ has_many :items, through: :line_items
 
 ##cart_items
 
-| Column        | Type       | Options           |
-| ------------  | ---------- | ----------------- |
-| item          | references | foreign_key: true |
-| cart          | references | foreign_key: true |
+| Column        | Type       | Options                 |
+| ------------  | ---------- | ----------------------- |
+| item          | references | foreign_key: true       |
+| cart          | references | foreign_key: true       |
 | quantity      | integer    | default: 0, null: false |
 
 ### Association
