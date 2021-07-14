@@ -13,11 +13,16 @@ class OrdersController < ApplicationController
     @order = Order.create(order_params)
     if @order.save
       pay_item
-      ###カートの中身を空にする処理 current_cart.destroy???  Cartコントローラーのdestroyアクションに飛ばせる？
-      redirect_to root_path
+      ###カートの中身を空にする
+      @cart_items = CartItem.where(user_id: current_user)
+      @cart_items.destroy_all
+      redirect_to cart_order_path(@order.id, @order.cart_id)
     else
       render :index
     end
+  end
+
+  def show
   end
 
   private

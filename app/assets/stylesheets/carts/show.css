@@ -63,3 +63,23 @@
   border: solid 1px red;
   color: blue;
 }
+
+
+/* 注文後のページ */
+
+.ordered{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 40px;
+  color: orange;
+}
+
+
+.toppage{
+  color: blue;
+}
+
+/* // 注文後のページ */
