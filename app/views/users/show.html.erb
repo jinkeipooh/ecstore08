@@ -1,0 +1,69 @@
+<%= render "shared/header" %>
+
+<div class="store-main">  <%# // 下メインメニュー %>
+  <%# 左下 %>
+  <div class="side-menu"> 
+    <div class="categories">
+      <ul class="buysell" >買う
+        <li><%= link_to "キッズ", "#", class: "buy" %></li> 
+        <li><%= link_to "メンズ", "#", class: "buy" %></li> 
+        <%# ↑ここはカテゴリー一覧が表示されるように実装  %>
+      </ul>
+      <ul class="buysell" >売る
+        <li><%= link_to "出品", new_item_path, class: "sell" %></li> 
+      </ul>
+      <% if user_signed_in? %>
+        <ul class="buysell" >カート
+          <%# <%= image_tag "cart.jpeg" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+          <li><%= link_to "カート", cart_path(@cart.user), class: "sell" %></li> 
+        </ul> 
+      <% end %>
+    </div>
+  </div>
+  <%# // 左下 %>
+  <%# 右下 %>
+  <div class="items">
+    <div class="page-name">マイページ</div>
+      <%# 自分の出品した商品 %>
+        <% @items.each do |item| %>
+          <% if item.user.id == current_user.id%>
+            <li class='list'>
+              <%= link_to item_path(item.id) do %>
+                <div class='item-img-content'>  
+                  <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' %>  
+                </div>
+                <div class='item-info'>
+                  <h3 class='item-name'>
+                    <%= item.name %>
+                  </h3>
+                  <div class='item-price'>
+                    <span>¥ <%= item.price %></span>
+                  </div>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      <%# // 自分の出品した商品 %>
+    </div>
+    </div>
+  </div>
+  <%# 右下 %>
+</div>
+
+<%= render "shared/footer" %>
+
+
+
+
+<%# <div class="site-name">ECStore</div> %>
+    <%# <div class="user-menu"> %>
+      
+    <%# </div> %>
+    <%# <div class="search-menu"> %>
+      <%# <%= form_with(url: '#', local: true, method: :get, class: "search-form") do |form| %> 
+        <%# <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %> 
+        <%# <%= form.submit "検索", class: "search-btn" %> 
+      <%# <% end %> 
+    <%# </div> %>
+<%# </div> %>
