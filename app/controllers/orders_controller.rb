@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:index, :create]
 
   def index
     @order = Order.new
@@ -23,9 +23,6 @@ class OrdersController < ApplicationController
       @cart_id = 0
       render :index
     end
-  end
-
-  def show
   end
 
   private

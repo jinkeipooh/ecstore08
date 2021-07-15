@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
   before_action :set_line_item, only: [:create]
   before_action :set_user
   before_action :set_cart, except: [:destroy]
