@@ -16,8 +16,11 @@ class OrdersController < ApplicationController
       ###カートの中身を空にする
       @cart_items = CartItem.where(user_id: current_user)
       @cart_items.destroy_all
-      redirect_to cart_order_path(@order.id, @order.cart_id)
     else
+      @cart_items = current_cart.user.cart_items
+      @cart_count = 0
+      @cart_total = 0
+      @cart_id = 0
       render :index
     end
   end
