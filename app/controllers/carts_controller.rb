@@ -6,6 +6,7 @@ class CartsController < ApplicationController
     @cart_count = 0
     @cart_total = 0
     @cart_id = 0
+    @cart = current_cart
   end
 
 end

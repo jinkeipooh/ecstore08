@@ -1,6 +1,6 @@
 class CartItemsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :set_line_item, only: [:create]
+  before_action :set_line_item, only: [:create, :update]
   before_action :set_user
   before_action :set_cart, except: [:destroy]
 
@@ -13,20 +13,25 @@ class CartItemsController < ApplicationController
     end
   end
 
+  # def edit
+  #   @item = Item.find(params[:id])
+  #   @cart_item = CartItem.find(params[:id])
+  # end
+
+  def update
+    if @cart_item.update(quantity: params[:quantity])
+      redirect_to cart_path(@cart.user)
+    else
+      render item_path(@cart_item.item)
+    end
+  end
+
   def destroy
     @cart_item = CartItem.find(params[:id])
     
     @cart_item.destroy
     redirect_to current_cart
   end
-
-  # def update
-  #   if @cart_item.update(item_id: params[:item_id], quantity: params[:quantity])
-  #     redirect_to cart_path(@cart.user)
-  #   else
-  #     render item_path(@cart_item.item)
-  #   end
-  # end
 
   private
   def set_user

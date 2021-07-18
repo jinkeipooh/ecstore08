@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
       ###カートの中身を空にする
       @cart_items = CartItem.where(user_id: current_user)
       @cart_items.destroy_all
+      @cart = current_cart
     else
       @cart_items = current_cart.user.cart_items
       @cart_count = 0
