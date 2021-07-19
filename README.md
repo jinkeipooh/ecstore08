@@ -78,6 +78,14 @@
 
 ### orders テーブル
 
+orders
+| Column         | Type       | Options           |
+| -------------- | ---------- | ----------------- |
+| user           | references | foreign_key: true |
+| cart           | references | foreign_key: true |
+| quantity       | integer    | null: false       |
+| total_price    | integer    | null: false       |
+
 | Column         | Type       | Options           |
 | -------------- | ---------- | ----------------- |
 | user           | references | foreign_key: true |
@@ -86,13 +94,6 @@
 | stock_quantity | integer    |                   |
 | price          | integer    | null: false       |
 
-orders
-| Column         | Type       | Options           |
-| -------------- | ---------- | ----------------- |
-| user           | references | foreign_key: true |
-| cart           | references | foreign_key: true |
-| quantity       | integer    | null: false       |
-| total_price    | integer    | null: false       |
 
 #### Association
 
@@ -152,6 +153,7 @@ has_many :items, through: :line_items
 | ------------  | ---------- | ----------------------- |
 | item          | references | foreign_key: true       |
 | cart          | references | foreign_key: true       |
+| user          | references | foreign_key: true       |
 | quantity      | integer    | default: 0, null: false |
 
 #### Association
