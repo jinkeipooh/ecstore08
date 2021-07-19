@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
 
   private
   def configure_permitted_parameters
