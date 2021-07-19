@@ -55,25 +55,56 @@
 
 #### Association
 
-- has_one :address
+- has_many :items
+- has_one :cart
+- has_many :cart_items
 - has_many :orders
 
 
-### addresses テーブル
-      
+### items テーブル
+
 | Column        | Type       | Options           |
 | ------------  | ---------- | ----------------- |
-| post_code     | string     | null: false       |
-| prefecture_id | integer    | null: false       |
-| city          | string     | null: false       |
-| house_num     | string     | null: false       |
-| building      | string     |                   |
-| phone_num     | string     | null: false       |
+| name          | string     | null: false       |
+| text          | text       | null: false       |
+| category_id   | integer    | null: false       |
+| price         | integer    | null: false       |
 | user          | references | foreign_key: true |
 
 #### Association
 
 - belongs_to :user
+- has_many :carts, through: :cart_items
+- has_many :cart_items
+
+
+### carts テーブル （#idのみ保持）
+
+| Column        | Type       | Options           |
+| ------------  | ---------- | ----------------- |
+| user          | references | foreign_key: true |
+
+#### Association
+
+- belongs_to :user
+- has_many :cart_items
+- has_many :items, through: :cart_items
+
+
+### cart_items
+
+| Column        | Type       | Options                 |
+| ------------  | ---------- | ----------------------- |
+| item          | references | foreign_key: true       |
+| cart          | references | foreign_key: true       |
+| user          | references | foreign_key: true       |
+| quantity      | integer    | default: 0, null: false |
+
+#### Association
+
+- belongs_to :user
+- belongs_to :item
+- belongs_to :cart
 
 
 ### orders テーブル
@@ -94,13 +125,15 @@ orders
 | stock_quantity | integer    |                   |
 | price          | integer    | null: false       |
 
-
 #### Association
 
 - belongs_to :user
 - belongs_to :cart
-- has_many :order_details
-- has_many :item, through: :order_details
+
+
+
+
+
 
 
 ### order_details
@@ -117,49 +150,26 @@ belongs_to :order
 belongs_to :item
 
 
-### items テーブル
-
+### addresses テーブル
+      
 | Column        | Type       | Options           |
 | ------------  | ---------- | ----------------- |
-| name          | string     | null: false       |
-| text          | text       | null: false       |
-| category_id   | integer    | null: false       |
-| price         | integer    | null: false       |
+| post_code     | string     | null: false       |
+| prefecture_id | integer    | null: false       |
+| city          | string     | null: false       |
+| house_num     | string     | null: false       |
+| building      | string     |                   |
+| phone_num     | string     | null: false       |
 | user          | references | foreign_key: true |
 
 #### Association
 
-has_many :order_derails
-has_many :orders, through: :order_details
-has_many :line_items
-has_many :carts, through: :line_items
+- belongs_to :user
 
 
-### carts テーブル （#idのみ保持）
-
-| Column        | Type       | Options           |
-| ------------  | ---------- | ----------------- |
-| user          | references | foreign_key: true |
-
-#### Association
-
-has_many :cart_items
-has_many :items, through: :line_items
 
 
-### cart_items
 
-| Column        | Type       | Options                 |
-| ------------  | ---------- | ----------------------- |
-| item          | references | foreign_key: true       |
-| cart          | references | foreign_key: true       |
-| user          | references | foreign_key: true       |
-| quantity      | integer    | default: 0, null: false |
-
-#### Association
-
-belongs_to :item
-belongs_to :cart
 
 
 ## ローカルでの動作方法
