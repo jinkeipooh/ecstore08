@@ -1,25 +1,39 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # def current_cart
+  #   if session[:cart_id]
+  #     current_cart = Cart.find_by(id: session[:cart_id])
+  #     session[:cart_id] = current_cart.id
+  #     current_cart
+  #   else
+  #     if user_signed_in?
+  #       current_cart = Cart.create(user_id: current_user.id)        ###  current_user → ログインしていないユーザーが入れない！
+  #       session[:cart_id] = current_cart.id
+  #       current_cart = Cart.find_by(id: session[:cart_id])
+  #       current_cart
+  #     else
+  #       render :index                                               ###  renderで引き戻しているが、、これで良いのか？？？？？？？？？
+  #     end
+  #   end
+  # end
+
   def current_cart
-    if session[:cart_id]
-      current_cart = Cart.find_by(id: session[:cart_id])
-      session[:cart_id] = current_cart.id
-      current_cart
-    else
-      if user_signed_in?
+    if user_signed_in?
+      if session[:cart_id]
+        current_cart = Cart.find_by(id: session[:cart_id])
+        session[:cart_id] = current_cart.id
+        current_cart
+      else
         current_cart = Cart.create(user_id: current_user.id)        ###  current_user → ログインしていないユーザーが入れない！
         session[:cart_id] = current_cart.id
         current_cart = Cart.find_by(id: session[:cart_id])
         current_cart
-      else
-        render :index                                               ###  renderで引き戻しているが、、これで良いのか？？？？？？？？？
       end
+    else
+      render :index                                               ###  renderで引き戻しているが、、これで良いのか？？？？？？？？？
     end
   end
-
-  
-  
 
   private
   def configure_permitted_parameters
