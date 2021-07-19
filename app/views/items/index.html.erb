@@ -1,83 +1,62 @@
-<%# <%= render "shared/header" %>
-
-<header> <%# // 上ヘッダーメニュー %>
-  <%# 左上 %>
-  <div class="store-header">
-    <div class="side-box">
-      <%= link_to 'ECStore', root_path, class: "store-name" %>
-    </div>
-  </div>
-  <%# // 左上 %>
-  <%# 右上 %>
-  <div class="main-header">
-    <div class="header-leftbox">
-      <ul class="top-list">
-      <% if user_signed_in? %>
-        <li><%= link_to current_user.nickname, "#", class: "menu" %></li> 
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "menu" %></li> 
-      <% else %>
-          <li><%= link_to 'ログイン', new_user_session_path, class: "menu" %></li> 
-          <li><%= link_to '新規登録', new_user_registration_path, class: "menu" %></li> 
-      <% end%>
-      </ul>
-    </div>
-    <a href="#" class="edit-btn">商品検索機能を付けたい</a>
-  </div>
-  <%# // 右上 %>
-</header>
+<%= render "shared/header" %>
 
 <div class="store-main">  <%# // 下メインメニュー %>
+
   <%# 左下 %>
-  <div class="side-menu"> 
-    <div class="categories">
-      <ul class="buysell" >買う
-        <li><%= link_to "キッズ", "#", class: "buy" %></li> 
-        <li><%= link_to "メンズ", "#", class: "buy" %></li> 
-        <%# ↑ここはカテゴリー一覧が表示されるように実装  %>
-      </ul>
-      <ul class="buysell" >売る
-        <li><%= link_to "出品", new_item_path, class: "sell" %></li> 
-      </ul>
-      <% if user_signed_in? %>
-        <ul class="buysell" >カート
-          <%# <%= image_tag "cart.jpeg" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-          <li><%= link_to "カート", cart_path(@cart.user), class: "sell" %></li> 
-        </ul> 
-      <% end %>
-    </div>
-  </div>
+  <%= render "shared/side-menu" %>
   <%# // 左下 %>
+
   <%# 右下 %>
   <div class="items">
     <div class="page-name">商品一覧</div>
     <%# 商品一覧が表示されるように記載 %>
     <% @items.each do |item| %>
-      <li class='list'>
-        <%= link_to item_path(item.id) do %>
-          <div class='item-img-content'>  
-            <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' %>  
-          </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              <%= item.name %>
-            </h3>
-            <div class='item-price'>
-              <span>¥ <%= item.price %></span>
-              <%# <div class='star-btn'>
-                <%# <%= image_tag "star.png", class:"star-icon" %>
-                <%# <span class='star-count'>0</span> %>
-              <%# </div> %>
-            </div>
-          </div>
+      <% if user_signed_in? %>
+        <%# 他の人が出品している商品のみ表示 %>
+        <% if item.user.id != current_user.id %>
+          <li class='list'>
+            <%= link_to item_path(item.id) do %>
+              <div class='item-img-content'>  
+                <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' %>  
+              </div>
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= item.name %>
+                </h3>
+                <div class='item-price'>
+                  <span>¥ <%= item.price %></span>
+                </div>
+              </div>
+            <% end %>
+          </li>
         <% end %>
-      </li>
+        <%# // 他の人が出品している商品のみ表示 %>
+      <% else %>
+        <li class='list'>
+          <%= link_to item_path(item.id) do %>
+            <div class='item-img-content'>  
+              <%= image_tag item.image.variant(resize: '200x200'), class: 'item-img' %>  
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                <%= item.name %>
+              </h3>
+              <div class='item-price'>
+                <span>¥ <%= item.price %></span>
+              </div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
     <% end %>
     <%# // 商品一覧が表示されるように記載 %>
   </div>
   <%# 右下 %>
 </div>
 
-<%# <%= render "shared/footer" %>
+
+
+<%= render "shared/footer" %>
 
 
 

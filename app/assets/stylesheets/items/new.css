@@ -12,8 +12,12 @@
 }
 
 .items-sell-header {
-  padding: 5vh 0;
   text-align: center;
+}
+
+.page-logo{
+  height: 100%;
+  width: 300px;
 }
 
 .items-sell-main {

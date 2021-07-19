@@ -55,12 +55,15 @@
 
 .total{
   margin: auto;
-  border: solid 1px red;
+}
+
+.total p{
+  font-size: 30px;
+  color: red;
 }
 
 .pay{
   margin: auto;
-  border: solid 1px red;
   color: blue;
 }
 

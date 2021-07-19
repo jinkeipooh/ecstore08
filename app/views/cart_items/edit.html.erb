@@ -19,22 +19,10 @@
       <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
       <p class="or-text">or</p>
       <%= link_to "削除", item_path, method: :delete, class:"item-destroy" %>
-
-<%#  %>
-    <%# <% elsif current_user.cart_item.item_id == @item.id %>
-      <%# <div class="cart"> %>
-        <%# <%= form_with model: @cart_item, url: cart_item_path, local: true do |f|%> 
-          <%# <%= f.label :quantity, "数量"%> 
-          <%# <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %> 
-          <%# <%= f.hidden_field :item_id, value: @item.id %> 
-          <%# <%= f.submit "カートに追加", class:"item-red-btn" %> 
-        <%# <% end %>
-      <%# </div> %>
-<%#  %>
-
     <% else %>
+      <%# <%= link_to "カートにいれる", "#" ,class:"item-red-btn"%>
       <div class="cart">
-        <%= form_with model: @cart_item, url: cart_items_path, local: true do |f|%>   <%# 送信先を変えられないか？ 同じ商品（の数）を更新できるようにしたい %>
+        <%= form_with model: @cart_item, url: cart_item_path(@cart_item.id), local: true do |f|%>   <%# 送信先を変えられないか？ 同じ商品（の数）を更新できるようにしたい %>
           <%= f.label :quantity, "数量"%>
           <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10] %>
           <%= f.hidden_field :item_id, value: @item.id %>
@@ -42,7 +30,6 @@
         <% end %>
       </div>
     <% end %>
-
 
 
     <div class="item-explain-box">

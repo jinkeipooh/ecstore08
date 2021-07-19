@@ -21,6 +21,7 @@ header{
 .store-name{
   color: #595959;
   font-size: 50px;
+  margin: auto;
 }
 // 左上
 // 右上
@@ -78,6 +79,7 @@ header{
   color: #eeeeee;
   font-size: 20px;
 }
+
 // 左下
 // 右下
 .items{
@@ -85,6 +87,7 @@ header{
   width: calc(100% - 300px);
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 20px;
   // box-sizing: border-box;
 }
 
