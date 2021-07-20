@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        birthday: 誕生日
+        family_name: 苗字
+        first_name: 名前
+      item:
+        category_id: カテゴリー
+        image: 画像
+        name: 商品名
+        text: 商品説明
+        price: 販売価格
+      order:
+        token: クレジットカード情報

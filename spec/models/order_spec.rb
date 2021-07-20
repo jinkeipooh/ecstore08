@@ -19,7 +19,7 @@ RSpec.describe Order, type: :model do
       it 'tokenが空だと登録できないこと' do
         @order.token = ''
         @order.valid?
-        expect(@order.errors.full_messages).to include("Token can't be blank")
+        expect(@order.errors.full_messages).to include "クレジットカード情報を入力してください"
       end
     end
   end
