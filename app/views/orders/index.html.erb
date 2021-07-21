@@ -24,6 +24,24 @@
     </div>
     <%# /購入内容の表示 %>
 
+    <div class="Card__title">
+      <h2>使用カード情報</h2>
+    </div>
+    <div class="Card_info">
+      【カード番号】
+      <br>
+      <%= "**** **** **** " + @card[:last4] %>
+      <%# カード番号の下4桁を取得 %>
+      <br>
+      【有効期限】
+      <br>
+      <%= @card[:exp_month] %>
+      <%# 有効期限の「月」を取得 %>
+      /
+      <%= @card[:exp_year] %>
+      <%# 有効期限の「年」を取得 %>
+    </div>
+
     <%# 支払額の表示 %>
     <div class='item-payment'>
       <h1 class='item-payment-title'>
@@ -35,51 +53,11 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%= form_with model: [ Cart.find(@cart_id), @order ], url: cart_orders_path(@cart_id), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
-    <%= render 'shared/error_messages', model: f.object %>
-    <%# カード情報の入力 %>
-      <div class='credit-card-form'>
-        <h1 class='info-input-haedline'>
-          クレジットカード情報入力
-        </h1>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">カード情報</label>
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_field :number, class:"input-default", id:"card-number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
-          <div class='available-card'>
-            <%= image_tag 'card-visa.gif', class: 'card-logo'%>
-            <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
-            <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
-            <%= image_tag 'card-amex.gif', class: 'card-logo'%>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">有効期限</label>
-            <span class="indispensable">必須</span>
-          </div>
-          <div class='input-expiration-date-wrap'>
-            <%= f.text_area :exp_month, class:"input-expiration-date", id:"card-exp-month", placeholder:"例)3" %>
-            <p>月</p>
-            <%= f.text_area :exp_year, class:"input-expiration-date", id:"card-exp-year", placeholder:"例)23" %>
-            <p>年</p>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">セキュリティコード</label>
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_field :cvc, class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
-        </div>
-      </div>
-      <%# /カード情報の入力 %>
+    <%= form_with model: [ Cart.find(@cart_id), @order ], url: cart_orders_path(@cart_id), id: 'charge-form2', class: 'transaction-form-wrap',local: true do |f| %>
       <div class='buy-btn'>
         <%= f.hidden_field :quantity, value: @cart_count %>
         <%= f.hidden_field :total_price, value: @cart_total %>
-        <%= f.submit "購入" ,class:"buy-red-btn", id:"button" %>
+        <%= f.submit "購入" ,class:"buy-red-btn", id:"btn" %>
       </div>
     <% end %>
   </div>
