@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_one :cart
   has_many :cart_items
   has_many :orders
+  has_one :card, dependent: :destroy
   with_options presence: true do
     validates :nickname
     validates :birthday
