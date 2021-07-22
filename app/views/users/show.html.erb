@@ -8,20 +8,30 @@
   
   <div class="items">
     <div class="page-name">マイページ</div>
-    <div class="lists">⭐️登録済みカード
-      <div class="Card_info">
-            【クレジットカード番号】
-            <br>
-            <%= "**** **** **** " + @card[:last4] %>
-            <br>
-            【有効期限】
-            <br>
-            <%= @card[:exp_month] %>
-            <%# 有効期限の「月」を取得 %>月
-            <%= @card[:exp_year] %>
-            <%# 有効期限の「年」を取得 %>年
-          </div>
-    </div>
+
+    <% if Card.exists?(user_id: current_user.id) %>
+      <div class="lists">⭐️登録済みクレジットカード
+        <div class="card_info">
+          【クレジットカード番号】
+          <br>
+          <%= "**** **** **** " + @card[:last4] %>
+          <br>
+          【有効期限】
+          <br>
+          <%= @card[:exp_month] %>
+          <%# 有効期限の「月」を取得 %>月
+          <%= @card[:exp_year] %>
+          <%# 有効期限の「年」を取得 %>年
+        </div>
+      </div>
+    <% else %>
+      <div class="lists">⭐️クレジットカード未登録
+        <div class="card_info">
+          <br><%= link_to '⇨クレジットカード新規登録へ', new_card_path, class: 'card_info' %>
+        </div>
+      </div>
+    <% end %>
+
     <div class="lists">⭐️あなたの出品中商品一覧</div>
       <%# 自分の出品した商品 %>
         <% @items.each do |item| %>

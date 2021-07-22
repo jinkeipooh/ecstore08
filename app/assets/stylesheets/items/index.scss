@@ -104,6 +104,10 @@ header{
   font-size: 40px;
   // box-sizing: border-box;
 }
+.card_info{
+  color: blue;
+  font-size: 20px;
+}
 .lists{
   width: 100%;
   font-size: 30px;
@@ -137,28 +141,6 @@ header{
   justify-content: space-between;
 }
 // 右下
-
-
-// .edit-btn{
-//   font-size: 16px;
-//   border: 1px solid #eeeeee;
-//   padding: 15px 20px;
-// }
-
-// .star-btn {
-//   display: flex;
-//   align-items: center;
-// }
-
-// .star-icon {
-//   height: 2vh;
-//   width: 2vh;
-//   margin-right: 0.5vw;
-// }
-
-// .star-count {
-//   font-size: 20px;
-// }
 
 a{
   text-decoration: none;
