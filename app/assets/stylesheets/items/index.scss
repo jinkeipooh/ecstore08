@@ -5,6 +5,7 @@ header{
   background-color: #eeeeee;
   display: flex;
 }
+
 // 左上
 .store-header{
   width: 300px;
@@ -24,6 +25,7 @@ header{
   margin: auto;
 }
 // 左上
+
 // 右上
 .main-header{
   width: calc(100% - 300px);
@@ -39,14 +41,17 @@ header{
         font-size: 25px;
         display: flex;
         justify-content: space-around;
-      }
+}
 .menu{
   display: flex;
   margin-right: 100px;
+  font-size: 30px;
+}
+.topcart{
+  margin-top: 6px;
+  color: orange;
 }
 // 右上
-
-
 
 .store-main{
   height: 100%;
@@ -79,8 +84,8 @@ header{
   color: #eeeeee;
   font-size: 20px;
 }
-
 // 左下
+
 // 右下
 .items{
   height: 100%;
@@ -90,7 +95,22 @@ header{
   margin-bottom: 20px;
   // box-sizing: border-box;
 }
-
+.page-name{
+  height: 100%;
+  width: calc(100% - 300px);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0 20px 20px;
+  font-size: 40px;  
+  // box-sizing: border-box;
+}
+.lists{
+  width: 100%;
+  font-size: 30px;
+  margin: 0 0 50px 30px;
+  display: flex;
+  /* flex-wrap: wrap; */
+}
 .list {
   width: 33vh;
   display: flex;

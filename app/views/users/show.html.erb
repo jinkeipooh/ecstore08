@@ -5,27 +5,24 @@
   <%= render "shared/side-menu" %>
   <%# // 左下 %>
   <%# 右下 %>
+  
   <div class="items">
-
-    <div class="Card__title">
-      <h2>登録済みカード情報</h2>
-    </div>
-    <div class="Card_info">
-      【カード番号】
-      <br>
-      <%= "**** **** **** " + @card[:last4] %>
-      <%# カード番号の下4桁を取得 %>
-      <br>
-      【有効期限】
-      <br>
-      <%= @card[:exp_month] %>
-      <%# 有効期限の「月」を取得 %>
-      /
-      <%= @card[:exp_year] %>
-      <%# 有効期限の「年」を取得 %>
-    </div>
-
     <div class="page-name">マイページ</div>
+    <div class="lists">⭐️登録済みカード
+      <div class="Card_info">
+            【クレジットカード番号】
+            <br>
+            <%= "**** **** **** " + @card[:last4] %>
+            <br>
+            【有効期限】
+            <br>
+            <%= @card[:exp_month] %>
+            <%# 有効期限の「月」を取得 %>月
+            <%= @card[:exp_year] %>
+            <%# 有効期限の「年」を取得 %>年
+          </div>
+    </div>
+    <div class="lists">⭐️あなたの出品中商品一覧</div>
       <%# 自分の出品した商品 %>
         <% @items.each do |item| %>
           <% if item.user.id == current_user.id%>
@@ -69,3 +66,5 @@
       <%# <% end %> 
     <%# </div> %>
 <%# </div> %>
+
+
