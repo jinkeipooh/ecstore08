@@ -5,6 +5,7 @@ header{
   background-color: #eeeeee;
   display: flex;
 }
+
 // 左上
 .store-header{
   width: 300px;
@@ -24,6 +25,7 @@ header{
   margin: auto;
 }
 // 左上
+
 // 右上
 .main-header{
   width: calc(100% - 300px);
@@ -39,14 +41,17 @@ header{
         font-size: 25px;
         display: flex;
         justify-content: space-around;
-      }
+}
 .menu{
   display: flex;
   margin-right: 100px;
+  font-size: 30px;
+}
+.topcart{
+  margin-top: 6px;
+  color: orange;
 }
 // 右上
-
-
 
 .store-main{
   height: 100%;
@@ -79,8 +84,8 @@ header{
   color: #eeeeee;
   font-size: 20px;
 }
-
 // 左下
+
 // 右下
 .items{
   height: 100%;
@@ -90,7 +95,26 @@ header{
   margin-bottom: 20px;
   // box-sizing: border-box;
 }
-
+.page-name{
+  height: 100%;
+  width: calc(100% - 300px);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0 20px 20px;
+  font-size: 40px;
+  // box-sizing: border-box;
+}
+.card_info{
+  color: blue;
+  font-size: 20px;
+}
+.lists{
+  width: 100%;
+  font-size: 30px;
+  margin: 0 0 50px 30px;
+  display: flex;
+  /* flex-wrap: wrap; */
+}
 .list {
   width: 33vh;
   display: flex;
@@ -117,182 +141,6 @@ header{
   justify-content: space-between;
 }
 // 右下
-
-
-
-
-
-
-
-
-// .wrapper{
-//   height: 100vh;
-//   display: flex;
-// }
-
-// .store-side{
-//   width: 300px;
-//   background-color: #333333;
-// }
-
-//   .store-header{
-//     height: 100px;
-//     background-color: #eeeeee;
-//     display: flex;
-//     align-items: center;
-//   }
-
-//     .side-box{
-//       width: 260px;
-//       height: 20px;
-//       margin: 0 20px;
-//       display: flex;
-//       justify-content: space-between;
-//       align-items: center;
-//       font-weight: bold;
-//     }
-
-//       .store-name{
-//         color: #595959;
-//         font-size: 50px;
-//       }
-
-//   .side-menu{
-//     height: calc(100% - 100px);
-//     // background-color: green;   //見やすいようにしてるだけよ
-//   }
-//     .categories{
-//       // display: flex;
-//       align-items: center;
-//     }
-//       .buysell{
-//         color: #eeeeee;
-//         font-size: 25px;
-//         margin: 0 50px 30px 30px;
-
-//       }
-//       .buy{
-//         color: #eeeeee;
-//         font-size: 20px;
-//       }
-//       .sell{
-//         color: #eeeeee;
-//         font-size: 20px;
-//       }
-
-
-
-// .store-main{
-//   width: calc(100% - 300px);
-//   background-color: #eeeeee; 
-// }
-
-//   .main-header{
-//     height: 100px;
-//     background-color: #3f3f3f;
-//     border-bottom: 1px solid #595959;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 0 40px;
-//   }
-
-//     .top-list{
-//       color: #eeeeee;
-//       font-size: 25px;
-//       display: flex;
-//       justify-content: space-around;
-//     }
-
-//       .menu{
-//         display: flex;
-//         margin-right: 100px;
-//       }
-
-
-
-.edit-btn{
-  font-size: 16px;
-  border: 1px solid #eeeeee;
-  padding: 15px 20px;
-}
-
-.star-btn {
-  display: flex;
-  align-items: center;
-}
-
-.star-icon {
-  height: 2vh;
-  width: 2vh;
-  margin-right: 0.5vw;
-}
-
-.star-count {
-  font-size: 20px;
-}
-
-
-// .list {
-//   width: 33vh;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   position: relative;
-// }
-
-
-// .item-img {
-//   width: 33vh;
-//   height: 33vh;
-// }
-
-// .item-info {
-//   background-color: #FFF;
-//   color: black;
-//   padding: 1vw;
-// }
-
-// .item-name {
-//   font-size: 2.5vh;
-// }
-
-// .item-price {
-//   font-size: 1.5vh;
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-
-// .form{
-//   height: 90px;
-//   background-color: #eeeeee;
-//   padding: 20px 40px;
-// }
-
-// .new-message{
-//   display: flex;
-// }
-
-// .input-text{
-//   width: 100%;
-//   height: 50px;
-//   padding: 0 15px;
-//   color: #434a54;
-//   font-size: 16px;
-//   border-style: none;
-//   margin-right: 15px;
-// }
-
-// .submit-btn{
-//   width: 100px;
-//   height: 50px;
-//   padding: 0 30px;
-//   background-color: #eeeeee;
-//   color: #1a1d21;
-//   font-size: 15px;
-//   cursor: pointer;
-// }
 
 a{
   text-decoration: none;

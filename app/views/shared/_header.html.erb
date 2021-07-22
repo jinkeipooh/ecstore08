@@ -13,13 +13,14 @@
       <% if user_signed_in? %>
         <li><%= link_to current_user.nickname, user_path(current_user.id), class: "menu" %></li> 
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "menu" %></li> 
+        <li><%= link_to "カート", cart_path(@cart.user), class: "menu topcart fas fa-shopping-cart fa-2x mycart" %></li>
       <% else %>
           <li><%= link_to 'ログイン', new_user_session_path, class: "menu" %></li> 
           <li><%= link_to '新規登録', new_user_registration_path, class: "menu" %></li> 
       <% end%>
       </ul>
     </div>
-    <a href="#" class="edit-btn">商品検索機能を付けたい</a>
+    <a href="#" class="edit-btn">商品検索</a>
   </div>
   <%# // 右上 %>
 </header>
