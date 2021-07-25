@@ -1,8 +1,5 @@
-<%= form_with  url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
-
-
-
-<%# 2 %>
+<%= form_with url: cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
+  <%# <%= render 'shared/error_messages', model: f.object %>
   <div class='credit-card-form'>
     <h1 class='info-input-haedline'>
       クレジットカード情報登録
@@ -26,10 +23,8 @@
         <span class="indispensable">必須</span>
       </div>
       <div class='input-expiration-date-wrap'>
-        <%# <%= f.text_area :exp_month, class:"input-expiration-date", id:"card-exp-month", placeholder:"例)3" %>
         <%= f.select :exp_month, 1..12, {include_blank: "---"}, class: "input-expiration-date" %>
         <p>月</p>
-        <%# <%= f.text_area :exp_year, class:"input-expiration-date", id:"card-exp-year", placeholder:"例)23" %>
         <%= f.select :exp_year, 21..26, {include_blank: "---"}, class: "input-expiration-date" %>
         <p>年</p>
       </div>
