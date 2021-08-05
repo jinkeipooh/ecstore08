@@ -1,6 +1,8 @@
 <%= render "shared/header" %>
 
-<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+<%# <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+<%= form_for(@user, url: user_registration_path) do |f| %>
+<%# <%= render "devise/shared/error_messages", resource: @user %>
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
@@ -75,10 +77,11 @@
     </div>
   </div>
   <div class='register-btn'>
-    <%= f.submit "会員登録" ,class:"register-red-btn" %>
+    <%# <%= f.submit "会員登録" ,class:"register-red-btn" %>
+    <%= f.submit "Next" %>
   </div>
   <p class='register-info'>本人情報の登録について</p>
 </div>
 <% end %>
 
-<%# <%= render "shared/second-footer"%> %>
+<%# <%= render "shared/second-footer"%>
