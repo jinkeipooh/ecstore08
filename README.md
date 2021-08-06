@@ -14,15 +14,17 @@
 
 ## テスト用アカウント
 	購入者用
-	メールアドレス: kei@gmail.com
-	パスワード: keikei08
+	メールアドレス: show@gmail.com
+	パスワード: show08
+	
 	購入用カード情報
 	番号：4242424242424242
 	期限：Mon Apr 26 2030 00:00:00 GMT+0900 (JST)
 	セキュリティコード：123
+
 	出品者用
-	メールアドレス名: master@gmail.com
-	パスワード: master08
+	メールアドレス名: mast@gmail.com
+	パスワード: master01
 
 ## 利用方法
 	WebブラウザGoogle Chromeの最新版を利用してアクセスしてください。
