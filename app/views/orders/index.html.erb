@@ -22,8 +22,22 @@
         </div>
       </div>
     </div>
-    <%# /購入内容の表示 %>
+    <%# //購入内容の表示 %>
+    <div class='buy-item-info'>
+      <div class='buy-item-right-content'>
+        <div class='buy-item-price'>
+          <p class='item-price-text'>郵便番号:<%= current_user.address.postal_code %></p>
+        </div>
+        <h2 class='buy-item-text'>
+          配送先住所:<%= current_user.address.address %>
+        </h2>
+      </div>
+    </div>
+    <%# 配送先情報 %>
 
+    <%# //配送先情報 %>
+
+    <%# クレジットカード情報の表示 %>
     <div class="lists">お支払いクレジットカード
       <div class="card_info">
             【クレジットカード番号】
@@ -38,6 +52,7 @@
             <%# 有効期限の「年」を取得 %>年
           </div>
     </div>
+    <%# //クレジットカード情報の表示 %>
 
     <%# 支払額の表示 %>
     <div class='item-payment'>
