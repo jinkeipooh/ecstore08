@@ -16,7 +16,7 @@
 	購入者用
 	メールアドレス: show@gmail.com
 	パスワード: show08
-	
+
 	購入用カード情報
 	番号：4242424242424242
 	期限：Mon Apr 26 2030 00:00:00 GMT+0900 (JST)
@@ -83,6 +83,7 @@ DB設計|アプリ全体に必要なテーブルを選出|||5
 - has_many :cart_items
 - has_many :orders
 - has_one :card, dependent: :destroy
+- has_one :address
 
 
 ### items テーブル
