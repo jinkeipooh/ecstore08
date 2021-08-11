@@ -23,13 +23,16 @@
       </div>
     </div>
     <%# //購入内容の表示 %>
+    <h1 class='transaction-title-text'>
+      配送先住所の確認
+    </h1>
     <div class='buy-item-info'>
       <div class='buy-item-right-content'>
         <div class='buy-item-price'>
-          <p class='item-price-text'>郵便番号:<%= current_user.address.postal_code %></p>
+          <p class='item-price-text'>〒:  <%= current_user.address.postal_code %></p>
         </div>
         <h2 class='buy-item-text'>
-          配送先住所:<%= current_user.address.address %>
+          住所:  <%= current_user.address.address %>
         </h2>
       </div>
     </div>
@@ -38,7 +41,9 @@
     <%# //配送先情報 %>
 
     <%# クレジットカード情報の表示 %>
-    <div class="lists">お支払いクレジットカード
+    <h1 class='transaction-title-text'>
+      お支払いクレジットカード
+    </h1>
       <div class="card_info">
             【クレジットカード番号】
             <br>
@@ -51,7 +56,6 @@
             <%= @card[:exp_year] %>
             <%# 有効期限の「年」を取得 %>年
           </div>
-    </div>
     <%# //クレジットカード情報の表示 %>
 
     <%# 支払額の表示 %>
