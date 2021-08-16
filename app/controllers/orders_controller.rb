@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
       @cart_items = CartItem.where(user_id: current_user)
       @cart_items.destroy_all
       @cart = current_cart
+      # redirect_to cart_orders_path(@cart)
     else
       @cart_items = current_cart.user.cart_items
       @cart_count = 0
