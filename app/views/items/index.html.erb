@@ -14,7 +14,7 @@
       <%# 商品一覧が表示されるように記載 %>
       <% @items.each do |item| %>
         <% if user_signed_in? %>
-          <%# 他の人が出品している商品のみ表示 %>
+          <%# 他の人が出品している商品のみ表示する実装 %>
           <% if item.user.id != current_user.id %>
             <li class='list'>
               <%= link_to item_path(item.id) do %>
@@ -32,7 +32,7 @@
               <% end %>
             </li>
           <% end %>
-          <%# // 他の人が出品している商品のみ表示 %>
+          <%# // 他の人が出品している商品のみ表示する実装 %>
         <% else %>
           <li class='list'>
             <%= link_to item_path(item.id) do %>
